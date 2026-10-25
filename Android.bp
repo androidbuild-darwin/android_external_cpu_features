@@ -136,6 +136,11 @@ cc_library {
         },
     },
     target: {
+        darwin_x86_64: {
+            exclude_srcs: ["src/impl_x86_linux_or_android.c"],
+            srcs: ["src/impl_x86_macos.c"],
+            cflags: ["-DHAVE_SYSCTLBYNAME"],
+        },
         windows: {
             enabled: true,
         },
